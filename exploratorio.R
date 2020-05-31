@@ -24,7 +24,7 @@ url <- mycurl %>%
   html_nodes("table")
 
 table_kills <- url %>% 
-  html_table(x, header = T) %>% 
+  html_table(header = T) %>% 
   as.data.frame()
 
 
@@ -48,8 +48,8 @@ for (paginas in 1:10) {
     html_nodes("div.board") %>% 
     html_nodes("table")
   
-  table_kills <- url %>% 
-    html_table(x, header = T) %>% 
+  table_kills[[paginas]] <- url %>% 
+    html_table(header = T) %>% 
     as.data.frame()
   
 }
